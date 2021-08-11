@@ -101,19 +101,21 @@ local function createUsePortal(options, useCallback, useEffect, useMemo, useStat
         }
 end
 
-local function usePortal(options, hooks)
-        if options.target == nil then
-                error('Please, provide a valid target!', 2)
-        end
+local function usePortal(options)
+        return function(hooks)
+                if options.target == nil then
+                        error('Please, provide a valid target!', 2)
+                end
 
-        return createUsePortal(
-                options,
-                hooks.useCallback,
-                hooks.useEffect,
-                hooks.useMemo,
-                hooks.useState,
-                hooks.useValue
-        )
+                return createUsePortal(
+                        options,
+                        hooks.useCallback,
+                        hooks.useEffect,
+                        hooks.useMemo,
+                        hooks.useState,
+                        hooks.useValue
+                )
+        end
 end
 
 return usePortal

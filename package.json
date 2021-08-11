@@ -1,6 +1,6 @@
 {
   "name": "@rimuyn/hooks",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "src/init.lua",
   "typings": "src/index.d.ts",
@@ -12,6 +12,13 @@
   ],
   "author": "",
   "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HylianBasement/custom-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HylianBasement/custom-hooks/issues"
+  },
   "files": [
     "src",
     "typings",

@@ -3,8 +3,7 @@ import { CoreHooks } from '@rbxts/roact-hooks';
 
 export default function useTween(
         tweenInfo: TweenInfo,
-        hooks: CoreHooks
-): LuaTuple<[Binding<number>, {
+): (hooks: CoreHooks) => LuaTuple<[Binding<number>, {
         Play: () => void;
         Pause: () => void;
         Cancel: () => void;

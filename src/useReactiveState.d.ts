@@ -5,5 +5,4 @@ export default function useReactiveState<T extends {
         [x: number]: any;
 }>(
         initialValue: T,
-        hooks: CoreHooks
-): T;
+): (hooks: CoreHooks) => T;

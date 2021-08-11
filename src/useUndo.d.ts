@@ -4,8 +4,7 @@ type SetPresent<T> = (newPresent: T) => void;
 
 export default function useUndo<T>(
         initialPresent: T,
-        hooks: CoreHooks
-): {
+): (hooks: CoreHooks) => {
         set: SetPresent<T>;
         reset: SetPresent<T>;
         undo: () => void;

@@ -19,10 +19,11 @@ local function createUseBoolean(initialValue, useCallback, useState)
         return value, setTrue, setFalse, toggle, setValue
 end
 
-local function useBoolean(initialValue, hooks)
-        assert(type(initialValue) == 'boolean', 'Initial value must be boolean')
-
-        return createUseBoolean(initialValue, hooks.useCallback, hooks.useState)
+local function useBoolean(initialValue)
+        return function(hooks)
+                assert(type(initialValue) == 'boolean', 'Initial value must be boolean')
+                return createUseBoolean(initialValue, hooks.useCallback, hooks.useState)
+        end
 end
 
 return useBoolean

@@ -22,14 +22,15 @@ local function createUseAsync(promise, useEffect, useState)
         return result
 end
 
-local function useAsync(asyncCallback, hooks)
-        local promise = hooks.useMemo(asyncCallback, {})
-
-        return createUseAsync(
-                promise,
-                hooks.useEffect,
-                hooks.useState
-        )
+local function useAsync(asyncCallback)
+        return function(hooks)
+                local promise = hooks.useMemo(asyncCallback, {})
+                return createUseAsync(
+                        promise,
+                        hooks.useEffect,
+                        hooks.useState
+                )
+        end
 end
 
 return useAsync

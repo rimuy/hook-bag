@@ -120,21 +120,23 @@ local function createUseUndo(state, dispatch, canUndo, canRedo)
         }
 end
 
-local function useUndo(initialPresent, hooks)
-        local useMemo = hooks.useMemo
-        local useReducer = hooks.useReducer
+local function useUndo(initialPresent)
+        return function(hooks)
+                local useMemo = hooks.useMemo
+                local useReducer = hooks.useReducer
 
-        local state, dispatch = useReducer(reducer, merge(
-                INITIAL_STATE,
-                { present = initialPresent }
-        ))
+                local state, dispatch = useReducer(reducer, merge(
+                        INITIAL_STATE,
+                        { present = initialPresent }
+                ))
 
-        return useMemo(function()
-                return createUseUndo(
-                        state, dispatch,
-                        #state.past > 0, #state.future > 0
-                )
-        end, { state.past, state.future })
+                return useMemo(function()
+                        return createUseUndo(
+                                state, dispatch,
+                                #state.past > 0, #state.future > 0
+                        )
+                end, { state.past, state.future })
+        end
 end
 
 return useUndo

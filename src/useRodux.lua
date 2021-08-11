@@ -18,13 +18,15 @@ local function createUseRodux(store, useCallback, useEffect, useState)
         return state, dispatch
 end
 
-local function useRodux(store, hooks)
-        return createUseRodux(
-                store,
-                hooks.useCallback,
-                hooks.useEffect,
-                hooks.useState
-        )
+local function useRodux(store)
+        return function(hooks)
+                return createUseRodux(
+                        store,
+                        hooks.useCallback,
+                        hooks.useEffect,
+                        hooks.useState
+                )
+        end
 end
 
 return useRodux

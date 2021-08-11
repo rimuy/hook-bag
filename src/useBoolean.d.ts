@@ -4,8 +4,7 @@ type SetBoolean = (value: boolean) => void;
 
 export default function useBoolean(
         initialValue: boolean,
-        hooks: CoreHooks
-): LuaTuple<[
+): (hooks: CoreHooks) => LuaTuple<[
         value: boolean,
         setTrue: SetBoolean,
         setFalse: SetBoolean,

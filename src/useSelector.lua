@@ -6,32 +6,34 @@ local function defaultEqualityCheck(a, b)
 	return a == b
 end
 
-local function useSelector(store, selector, hooks, equalityFn)
-	if not equalityFn then
-		equalityFn = defaultEqualityCheck
-	end
-
-	local checkEqual = hooks.useMemo(function()
+local function useSelector(store, selector, equalityFn)
+	return function(hooks)
 		if not equalityFn then
 			equalityFn = defaultEqualityCheck
 		end
-		return equalityFn
-	end, { equalityFn })
 
-	local state = store:getState()
-	local result = hooks.useMemo(function()
-		return createSelectorCreator(
-			defaultMemoize,
-			checkEqual
-		)(
-			function()
-				return state
-			end,
-			selector
-		)
-	end, { state })
+		local checkEqual = hooks.useMemo(function()
+			if not equalityFn then
+				equalityFn = defaultEqualityCheck
+			end
+			return equalityFn
+		end, { equalityFn })
 
-	return result
+		local state = store:getState()
+		local result = hooks.useMemo(function()
+			return createSelectorCreator(
+				defaultMemoize,
+				checkEqual
+			)(
+				function()
+					return state
+				end,
+				selector
+			)
+		end, { state })
+
+		return result
+	end
 end
 
 return useSelector

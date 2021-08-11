@@ -42,18 +42,20 @@ local function createUseTween(numberValue, tween, useBinding, useCallback, useEf
         }
 end
 
-local function useTween(tweenInfo, hooks)
-        local numberValue = hooks.useMemo(function()
-                return Instance.new('NumberValue')
-        end, {})
+local function useTween(tweenInfo)
+        return function(hooks)
+                local numberValue = hooks.useMemo(function()
+                        return Instance.new('NumberValue')
+                end, {})
 
-        local tween = TweenService:Create(numberValue, tweenInfo, { Value = 1 })
+                local tween = TweenService:Create(numberValue, tweenInfo, { Value = 1 })
 
-        return createUseTween(
-                numberValue, tween,
-                hooks.useBinding, hooks.useCallback,
-                hooks.useEffect
-        )
+                return createUseTween(
+                        numberValue, tween,
+                        hooks.useBinding, hooks.useCallback,
+                        hooks.useEffect
+                )
+        end
 end
 
 return useTween

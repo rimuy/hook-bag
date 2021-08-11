@@ -14,9 +14,8 @@ interface Options {
 }
 
 export default function usePortal(
-        options: Options,
-        hooks: CoreHooks
-): {
+        options: Options
+): (hooks: CoreHooks) => {
         Portal: Element;
         isShow: boolean;
         show: () => void;

@@ -21,8 +21,10 @@ local function createUseFlipper(motor, useBinding)
 	return binding, motor
 end
 
-local function useFlipper(motor, hooks)
-        return createUseFlipper(motor, hooks.useBinding)
+local function useFlipper(motor)
+	return function(hooks)
+        	return createUseFlipper(motor, hooks.useBinding)
+	end
 end
 
 return useFlipper
