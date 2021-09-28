@@ -1,8 +1,5 @@
-import { CoreHooks } from '@rbxts/roact-hooks';
+import { CoreHooks } from "@rbxts/roact-hooks";
 
-export default function useReactiveState<T extends {
-        [x: string]: any;
-        [x: number]: any;
-}>(
+export default function useReactiveState<T extends Record<string, any>>(
         initialValue: T,
 ): (hooks: CoreHooks) => T;

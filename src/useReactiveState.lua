@@ -1,8 +1,9 @@
+local copy = require(script.Parent.copy)
 
 local function useReactiveState(initialState)
         return function(hooks)
-                if type(initialState) ~= 'table' then
-                        error('Initial state is not a table!', 2)
+                if type(initialState) ~= "table" then
+                        error("Initial state is not a table!", 2)
                 end
 
                 local state, update = hooks.useState(initialState)
@@ -12,8 +13,9 @@ local function useReactiveState(initialState)
                                 return state[key]
                         end,
                         __newindex = function(_, key, value)
-                                state[key] = value
-                                update(state)
+                                local newState = copy(state)
+                                newState[key] = value
+                                update(newState)
                         end,
                         __tostring = function()
                                 return 'ReactiveState'

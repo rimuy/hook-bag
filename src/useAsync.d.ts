@@ -1,4 +1,4 @@
-import { CoreHooks } from '@rbxts/roact-hooks';
+import { CoreHooks } from "@rbxts/roact-hooks";
 
 export default function useAsync(
         asyncCallback: (...args: any[]) => Promise<unknown>,

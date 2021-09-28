@@ -1,6 +1,6 @@
 {
-  "name": "@rimuyn/hooks",
-  "version": "0.1.4",
+  "name": "@rbxts/hook-bag",
+  "version": "0.0.1",
   "description": "",
   "main": "src/init.lua",
   "typings": "src/index.d.ts",
@@ -14,10 +14,10 @@
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HylianBasement/custom-hooks.git"
+    "url": "git+https://github.com/HylianBasement/rbx-hook-bag.git"
   },
   "bugs": {
-    "url": "https://github.com/HylianBasement/custom-hooks/issues"
+    "url": "https://github.com/HylianBasement/rbx-hook-bag/issues"
   },
   "files": [
     "src",

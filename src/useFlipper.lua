@@ -1,12 +1,12 @@
-local Flipper = require(script.Parent.Import)('flipper')
+local Flipper = require(script.Parent.Import)("flipper")
 local Symbol = require(script.Parent.Symbol)
 
-local AssignedBinding = Symbol.named('AssignedBinding')
+local AssignedBinding = Symbol.named("AssignedBinding")
 
 local function createUseFlipper(motor, useBinding)
 	local isMotor = Flipper.isMotor(motor)
 	if not isMotor then
-		error('Provided value is not a motor!', 2)
+		error("Provided value is not a motor!", 2)
 	end
 
 	if motor[AssignedBinding] then

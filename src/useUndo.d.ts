@@ -1,4 +1,4 @@
-import { CoreHooks } from '@rbxts/roact-hooks';
+import { CoreHooks } from "@rbxts/roact-hooks";
 
 type SetPresent<T> = (newPresent: T) => void;
 

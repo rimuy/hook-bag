@@ -1,20 +1,20 @@
 
 local function isMaid(obj)
-        return (type(obj) == 'table' and obj.ClassName == 'Maid')
+        return (type(obj) == "table" and obj.ClassName == "Maid")
 end
 
 local function useMaid(maid, deps)
         return function(hooks)
                 if isMaid(maid) == false then
-                        error('Value is not a maid!', 2)
+                        error("Value is not a maid!", 2)
                 end
 
                 if deps then
-                        if type(deps) ~= 'table' then
-                                error('Dependency list must be a table.', 2)
+                        if type(deps) ~= "table" then
+                                error("Dependency list must be a table.", 2)
 
                         elseif #deps == 0 then
-                                error('Dependency list should not be empty.', 2)
+                                error("Dependency list should not be empty.", 2)
                         end
                 end
 

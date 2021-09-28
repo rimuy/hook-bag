@@ -5,17 +5,16 @@ local Maid = require(script.Parent.Maid)
 local merge = require(script.Parent.merge)
 
 local DEFAULT_OPTIONS = {
-        target = nil, -- Required
-        defaultShow = true,
-        displayName = 'Portal',
-        displayOrder = 50000,
-        ignoreGuiInset = false,
-        clickOutsideToHide = false,
-        onShow = function()
+        Target = nil, -- Required!
+        DefaultShow = true,
+        DisplayName = "Portal",
+        DisplayOrder = 50000,
+        IgnoreGuiInset = false,
+        OnShow = function()
         end,
-        onHide = function()
+        OnHide = function()
         end,
-        onClickOutside = function(hide)
+        OnClickOutside = function(hide)
                 hide()
         end,
 }
@@ -23,7 +22,7 @@ local DEFAULT_OPTIONS = {
 local function createUsePortal(options, useCallback, useEffect, useMemo, useState, useValue)
         options = merge(DEFAULT_OPTIONS, options)
 
-        local isShow, setShow = useState(options.defaultShow)
+        local isShow, setShow = useState(options.DefaultShow)
         local connection = useValue()
 
         local show = useCallback(function()
@@ -46,7 +45,7 @@ local function createUsePortal(options, useCallback, useEffect, useMemo, useStat
                                 if processed == false
                                 and isShow == true
                                 and input.UserInputType == Enum.UserInputType.MouseButton1 then
-                                        options.onClickOutside(hide)
+                                        options.OnClickOutside(hide)
                                         maid:DoCleaning()
                                 end
                         end)
@@ -61,12 +60,12 @@ local function createUsePortal(options, useCallback, useEffect, useMemo, useStat
 
         local triggerEvent = useCallback(function()
                 if isShow == true then
-                        options.onShow()
+                        options.OnShow()
                         if connection.value == nil then
                                 registerInput()
                         end
                 else
-                        options.onHide()
+                        options.OnHide()
                         if connection.value ~= nil then
                                 connection.value:Disconnect()
                                 connection.value = nil
@@ -78,11 +77,11 @@ local function createUsePortal(options, useCallback, useEffect, useMemo, useStat
                 local portal
                 if isShow == true then
                         portal = Roact.createElement(Roact.Portal, {
-                                target = options.target,
+                                target = options.Target,
                         }, {
-                                [options.displayName] = Roact.createElement('ScreenGui', {
-                                        DisplayOrder = options.displayOrder,
-                                        IgnoreGuiInset = options.ignoreGuiInset,
+                                [options.DisplayName] = Roact.createElement('ScreenGui', {
+                                        DisplayOrder = options.DisplayOrder,
+                                        IgnoreGuiInset = options.IgnoreGuiInset,
                                 }, props[Roact.Children])
                         })
                 end
@@ -103,7 +102,7 @@ end
 
 local function usePortal(options)
         return function(hooks)
-                if options.target == nil then
+                if options.Target == nil then
                         error('Please, provide a valid target!', 2)
                 end
 

@@ -1,15 +1,23 @@
-local TweenService = game:GetService('TweenService')
+local TweenService = game:GetService("TweenService")
 
-local function createUseTween(numberValue, tween, useBinding, useCallback, useEffect)
+local function createUseTween(numberValue, tween, useBinding, useCallback, useEffect, useValue)
         local binding, setBinding = useBinding(0)
+        local onCompletedConnection = useValue()
 
         useEffect(function()
-                local connection = numberValue:GetPropertyChangedSignal('Value'):Connect(function()
+                local connection = numberValue:GetPropertyChangedSignal("Value"):Connect(function()
                         setBinding(numberValue.Value)
                 end)
 
                 return function()
                         connection:Disconnect()
+                        local conn = onCompletedConnection.value
+
+                        if conn ~= nil then
+                                onCompletedConnection.value = nil
+                                conn:Disconnect()
+                        end
+
                         numberValue:Destroy()
                 end
         end, {})
@@ -28,24 +36,25 @@ local function createUseTween(numberValue, tween, useBinding, useCallback, useEf
         end, {})
 
         local onCompleted = useCallback(function(callback)
-                if type(callback) ~= 'function' then
-                        error('Callback parameter is not a function!', 3)
+                if type(callback) ~= "function" then
+                        error("Callback parameter is not a function!", 3)
                 end
-                tween.Completed:Connect(callback)
+
+                onCompletedConnection.value = tween.Completed:Connect(callback)
         end, {})
 
         return binding, {
-                Play = play,
-                Pause = pause,
-                Cancel = cancel,
-                OnCompleted = onCompleted,
+                play = play,
+                pause = pause,
+                cancel = cancel,
+                onCompleted = onCompleted,
         }
 end
 
 local function useTween(tweenInfo)
         return function(hooks)
                 local numberValue = hooks.useMemo(function()
-                        return Instance.new('NumberValue')
+                        return Instance.new("NumberValue")
                 end, {})
 
                 local tween = TweenService:Create(numberValue, tweenInfo, { Value = 1 })
@@ -53,7 +62,7 @@ local function useTween(tweenInfo)
                 return createUseTween(
                         numberValue, tween,
                         hooks.useBinding, hooks.useCallback,
-                        hooks.useEffect
+                        hooks.useEffect, hooks.useValue
                 )
         end
 end

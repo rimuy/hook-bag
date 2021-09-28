@@ -1,3 +1,4 @@
+local useArray = require(script.useArray)
 local useAsync = require(script.useAsync)
 local useBoolean = require(script.useBoolean)
 local useFlipper = require(script.useFlipper)
@@ -9,8 +10,10 @@ local useRodux = require(script.useRodux)
 local useSelector = require(script.useSelector)
 local useTween = require(script.useTween)
 local useUndo = require(script.useUndo)
+local useUpdateEffect = require(script.useUpdateEffect)
 
 return {
+        useArray = useArray,
         useAsync = useAsync,
         useBoolean = useBoolean,
         useFlipper = useFlipper,
@@ -22,4 +25,5 @@ return {
         useSelector = useSelector,
         useTween = useTween,
         useUndo = useUndo,
+        useUpdateEffect = useUpdateEffect,
 }

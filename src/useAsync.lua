@@ -2,7 +2,7 @@ local Promise = require(script.Parent.Promise)
 
 local function createUseAsync(promise, useEffect, useState)
         if Promise.is(promise) == false then
-                error('Value is not an async function!', 2)
+                error("Value is not an async function!", 2)
         end
 
         local result, update = useState({ loading = true })
