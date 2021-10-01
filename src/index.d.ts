@@ -7,6 +7,7 @@ import useForceUpdate from "./useForceUpdate";
 import useMaid from "./useMaid";
 import usePortal from "./usePortal";
 import usePrevious from "./usePrevious";
+import useQueue from "./useQueue";
 import useReactiveState from "./useReactiveState";
 import useRodux from "./useRodux";
 import useSelector from "./useSelector";
@@ -25,6 +26,7 @@ declare namespace CustomHooks {
                 useMaid,
                 usePortal,
                 usePrevious,
+                useQueue,
                 useReactiveState,
                 useRodux,
                 useSelector,

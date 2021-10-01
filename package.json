@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/hook-bag",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "src/init.lua",
   "typings": "src/index.d.ts",
@@ -35,7 +35,7 @@
     "@rbxts/flipper": "^2.0.0",
     "@rbxts/maid": "^1.0.0-ts.1",
     "@rbxts/roact": "^1.4.0-ts.1",
-    "@rbxts/roact-hooks": "^0.1.1-ts.2",
+    "@rbxts/roact-hooks": "^0.3.0-ts.0",
     "@rbxts/rodux": "^3.0.0-ts.3",
     "@rbxts/roselect": "0.0.1"
   }

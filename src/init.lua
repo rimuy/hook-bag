@@ -7,6 +7,7 @@ local useForceUpdate = require(script.useForceUpdate)
 local useMaid = require(script.useMaid)
 local usePortal = require(script.usePortal)
 local usePrevious = require(script.usePrevious)
+local useQueue = require(script.useQueue)
 local useReactiveState = require(script.useReactiveState)
 local useRodux = require(script.useRodux)
 local useSelector = require(script.useSelector)
@@ -24,6 +25,7 @@ return {
         useMaid = useMaid,
         usePortal = usePortal,
         usePrevious = usePrevious,
+        useQueue = useQueue,
         useReactiveState = useReactiveState,
         useRodux = useRodux,
         useSelector = useSelector,
