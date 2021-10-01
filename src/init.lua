@@ -1,6 +1,5 @@
 local useArray = require(script.useArray)
 local useAsync = require(script.useAsync)
-local useBoolean = require(script.useBoolean)
 local useCounter = require(script.useCounter)
 local useFlipper = require(script.useFlipper)
 local useForceUpdate = require(script.useForceUpdate)
@@ -11,6 +10,7 @@ local useQueue = require(script.useQueue)
 local useReactiveState = require(script.useReactiveState)
 local useRodux = require(script.useRodux)
 local useSelector = require(script.useSelector)
+local useToggle = require(script.useToggle)
 local useTween = require(script.useTween)
 local useUndo = require(script.useUndo)
 local useUpdateEffect = require(script.useUpdateEffect)
@@ -18,7 +18,6 @@ local useUpdateEffect = require(script.useUpdateEffect)
 return {
         useArray = useArray,
         useAsync = useAsync,
-        useBoolean = useBoolean,
         useCounter = useCounter,
         useFlipper = useFlipper,
         useForceUpdate = useForceUpdate,
@@ -29,6 +28,7 @@ return {
         useReactiveState = useReactiveState,
         useRodux = useRodux,
         useSelector = useSelector,
+        useToggle = useToggle,
         useTween = useTween,
         useUndo = useUndo,
         useUpdateEffect = useUpdateEffect,
