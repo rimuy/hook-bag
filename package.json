@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "",
   "main": "src/init.lua",
-  "typings": "src/index.d.ts",
+  "types": "typings/index.d.ts",
   "scripts": {},
   "keywords": [
     "Roblox",
