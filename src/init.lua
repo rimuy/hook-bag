@@ -2,6 +2,7 @@ local useArray = require(script.useArray)
 local useAsync = require(script.useAsync)
 local useCounter = require(script.useCounter)
 local useDebounce = require(script.useDebounce)
+local useDebouncedText = require(script.useDebouncedText)
 local useFlipper = require(script.useFlipper)
 local useForceUpdate = require(script.useForceUpdate)
 local useLatest = require(script.useLatest)
@@ -24,6 +25,7 @@ return {
         useAsync = useAsync,
         useCounter = useCounter,
         useDebounce = useDebounce,
+        useDebouncedText = useDebouncedText,
         useFlipper = useFlipper,
         useForceUpdate = useForceUpdate,
         useLatest = useLatest,

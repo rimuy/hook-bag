@@ -2,6 +2,7 @@ import useArray from "./useArray";
 import useAsync from "./useAsync";
 import useCounter from "./useCounter";
 import useDebounce from "./useDebounce";
+import useDebouncedText from "./useDebouncedText";
 import useFlipper from "./useFlipper";
 import useForceUpdate from "./useForceUpdate";
 import useLatest from "./useLatest";
@@ -25,6 +26,7 @@ declare namespace CustomHooks {
                 useAsync,
                 useCounter,
                 useDebounce,
+                useDebouncedText,
                 useFlipper,
                 useForceUpdate,
                 useLatest,
