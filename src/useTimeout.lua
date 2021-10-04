@@ -1,18 +1,19 @@
 local Promise = require(script.Parent.Promise)
 
+local function noop() end
+
 local function useTimeout(time, callback, onCancel)
         return function(hooks)
-                local now = hooks.useValue(os.time())
-
                 local createTimeout = hooks.useCallback(function()
                         return Promise.delay(time):andThen(function(resolve)
                                 task.spawn(function()
                                         callback()
                                 end)
                                 resolve()
-                        end):catch(function() end)
+                        end):catch(noop)
                 end, {})
 
+                local now = hooks.useValue(os.time())
                 local timeout = hooks.useValue(createTimeout())
 
                 local cancel = hooks.useCallback(function()
