@@ -1,0 +1,6 @@
+{
+        "name": "hook-bag",
+        "tree": {
+                "$path": "src"
+        }
+}

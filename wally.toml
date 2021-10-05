@@ -1,7 +1,7 @@
 [package]
-name = "rimuy/hooks"
+name = "rimuy/hook-bag"
 version = "0.1.0"
+license = "MPL-2.0"
+authors = ["Rimuy"]
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-
-[dependencies]
