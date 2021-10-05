@@ -26,6 +26,10 @@ local useUndo = require(hooks.useUndo)
 local useUpdateEffect = require(hooks.useUpdateEffect)
 
 local function createSource(roactSource, roactRoduxSource)
+        if roactSource == nil then
+                error("Roact path was not found. Are you sure that package is installed?", 2)
+        end
+
         local useStore = createUseStore(roactRoduxSource)
         local useSelector = createUseSelector(useStore)
         local useDispatch = createUseDispatch(useStore)

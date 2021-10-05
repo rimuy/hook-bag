@@ -19,10 +19,6 @@ local DEFAULT_OPTIONS = {
 local function usePortal(Roact)
         return function(options)
                 return function(hooks)
-                        if Roact == nil then
-                                error("Roact path was not found. Are you sure that package is installed?", 2)
-                        end
-
                         if options.Target == nil then
                                 error("Please, provide a valid target!", 3)
                         end
