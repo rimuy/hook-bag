@@ -1,15 +1,6 @@
 return function(name, org)
-        local module
+        local module = script.Parent.Parent:FindFirstChild(name)
         local lib
-
-        name = name:lower()
-
-        for _, c in ipairs(script.Parent.Parent:GetChildren()) do
-                if c:IsA("ModuleScript") and name == c.Name:lower() then
-                        module = c
-                        break
-                end
-        end
 
         if not module then
                 local rbxts = game:GetService("ReplicatedStorage"):FindFirstChild("rbxts_include")
@@ -19,7 +10,7 @@ return function(name, org)
                                         :WaitForChild("rbxts_include")
                                         :WaitForChild("RuntimeLib")
                         )
-                        lib = TS.import(script, TS.getModule(script, "@" .. (org or "rbxts"), name).src)
+                        lib = TS.import(script, TS.getModule(script, "@" .. (org or "rbxts"), name:lower()).src)
                 else
                         error(("Failed to find %s."):format(name))
                 end

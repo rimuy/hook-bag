@@ -1,4 +1,4 @@
-local merge = require(script.Parent.merge)
+local merge = require(script.Parent.Parent.merge)
 
 local UNDO_ACTION = "UNDO"
 local REDO_ACTION = "REDO"

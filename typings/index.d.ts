@@ -1,8 +1,9 @@
 import useArray from "./useArray";
 import useAsync from "./useAsync";
 import useCounter from "./useCounter";
-import useDebounce from "./useDebounce";
+import { useDebounce } from "./useDebounce";
 import useDebouncedText from "./useDebouncedText";
+import { useDispatch } from "./useDispatch";
 import useFlipper from "./useFlipper";
 import useForceUpdate from "./useForceUpdate";
 import useLatest from "./useLatest";
@@ -12,13 +13,13 @@ import usePrevious from "./usePrevious";
 import useQueue from "./useQueue";
 import useReactiveState from "./useReactiveState";
 import useRendersSpy from "./useRendersSpy";
-import useRodux from "./useRodux";
 import useSelector from "./useSelector";
-import useTimeout from "./useTimeout";
+import useStore from "./useStore";
+import { useTimeout } from "./useTimeout";
 import useToggle from "./useToggle";
 import useTween from "./useTween";
 import useUndo from "./useUndo";
-import useUpdateEffect from "./useUpdateEffect";
+import { useUpdateEffect } from "./useUpdateEffect";
 
 declare namespace CustomHooks {
         export {
@@ -27,6 +28,7 @@ declare namespace CustomHooks {
                 useCounter,
                 useDebounce,
                 useDebouncedText,
+                useDispatch,
                 useFlipper,
                 useForceUpdate,
                 useLatest,
@@ -36,8 +38,8 @@ declare namespace CustomHooks {
                 useQueue,
                 useReactiveState,
                 useRendersSpy,
-                useRodux,
                 useSelector,
+                useStore,
                 useTimeout,
                 useToggle,
                 useTween,

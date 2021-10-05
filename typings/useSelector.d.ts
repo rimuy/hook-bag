@@ -1,8 +1,7 @@
 import { CoreHooks } from "@rbxts/roact-hooks";
-import { Store } from "@rbxts/rodux";
+import { Selector } from "@rbxts/roselect";
 
-export default function useSelector<T, S extends (state: T) => any>(
-        store: typeof Store,
-        selector: S,
-        equalityFn: Callback
-): (hooks: CoreHooks) => T;
+export default function useSelector<S, R>(
+        selector: Selector<S, R>,
+        equalityFn?: (a: unknown, b: unknown) => boolean,
+): (hooks: CoreHooks) => R;

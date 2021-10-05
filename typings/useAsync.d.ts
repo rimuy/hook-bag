@@ -1,10 +1,10 @@
 import { CoreHooks } from "@rbxts/roact-hooks";
 
-export default function useAsync(
-        asyncCallback: (...args: any[]) => Promise<unknown>,
+export default function useAsync<T>(
+        asyncCallback: (...args: any[]) => Promise<T>,
 ): (hooks: CoreHooks) => {
-        loading: boolean;
-        error?: string;
-        result?: string;
-        cancel?: boolean;
+        isLoading: boolean;
+        isCancelled?: boolean;
+        didError?: boolean;
+        result?: T;
 };

@@ -1,45 +1,6 @@
-local useArray = require(script.useArray)
-local useAsync = require(script.useAsync)
-local useCounter = require(script.useCounter)
-local useDebounce = require(script.useDebounce)
-local useDebouncedText = require(script.useDebouncedText)
-local useFlipper = require(script.useFlipper)
-local useForceUpdate = require(script.useForceUpdate)
-local useLatest = require(script.useLatest)
-local useMaid = require(script.useMaid)
-local usePortal = require(script.usePortal)
-local usePrevious = require(script.usePrevious)
-local useQueue = require(script.useQueue)
-local useReactiveState = require(script.useReactiveState)
-local useRendersSpy = require(script.useRendersSpy)
-local useRodux = require(script.useRodux)
-local useSelector = require(script.useSelector)
-local useTimeout = require(script.useTimeout)
-local useToggle = require(script.useToggle)
-local useTween = require(script.useTween)
-local useUndo = require(script.useUndo)
-local useUpdateEffect = require(script.useUpdateEffect)
+local createSource = require(script.createSource)
 
-return {
-        useArray = useArray,
-        useAsync = useAsync,
-        useCounter = useCounter,
-        useDebounce = useDebounce,
-        useDebouncedText = useDebouncedText,
-        useFlipper = useFlipper,
-        useForceUpdate = useForceUpdate,
-        useLatest = useLatest,
-        useMaid = useMaid,
-        usePortal = usePortal,
-        usePrevious = usePrevious,
-        useQueue = useQueue,
-        useReactiveState = useReactiveState,
-        useRendersSpy = useRendersSpy,
-        useRodux = useRodux,
-        useSelector = useSelector,
-        useTimeout = useTimeout,
-        useToggle = useToggle,
-        useTween = useTween,
-        useUndo = useUndo,
-        useUpdateEffect = useUpdateEffect,
-}
+local roactSource = script.Parent.Roact
+local roactRoduxSource = script.Parent.RoactRodux
+
+return createSource(roactSource, roactRoduxSource)

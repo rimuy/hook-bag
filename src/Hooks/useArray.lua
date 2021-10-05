@@ -1,9 +1,10 @@
-local copy = require(script.Parent.copy)
+local copy = require(script.Parent.Parent.copy)
 
-local function createUseArray(initialValue, useCallback, useState)
-        local array, setArray = useState(initialValue)
+local function useArray(initialValue)
+        return function(hooks)
+                local array, setArray = hooks.useState(initialValue)
 
-                local newArray = useCallback(function(callback)
+                local newArray = hooks.useCallback(function(callback)
                         setArray(function(a)
                                 return callback(copy(a))
                         end)
@@ -65,15 +66,6 @@ local function createUseArray(initialValue, useCallback, useState)
                         remove = remove,
                         clear = clear,
                 }
-end
-
-local function useArray(initialValue)
-        return function(hooks)
-                return createUseArray(
-                        initialValue,
-                        hooks.useCallback,
-                        hooks.useState
-                )
         end
 end
 

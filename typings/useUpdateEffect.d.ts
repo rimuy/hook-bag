@@ -1,6 +1,10 @@
 import { CoreHooks } from "@rbxts/roact-hooks";
 
-export default function useUpdateEffect(
+export function useUpdateEffect(
         callback: () => (() => void) | void,
-        dependencies?: any[],
+): (hooks: CoreHooks) => void;
+
+export function useUpdateEffect(
+        callback: () => (() => void) | void,
+        dependencies: Array<any>,
 ): (hooks: CoreHooks) => void;

@@ -1,7 +1,12 @@
 import { CoreHooks } from "@rbxts/roact-hooks";
 
-export default function useDebounce(
+export function useDebounce(
         time: number,
         callback: () => void,
-        dependencies?: Array<any>,
+): (hooks: CoreHooks) => void;
+
+export function useDebounce(
+        time: number,
+        callback: () => void,
+        dependencies: Array<defined>,
 ): (hooks: CoreHooks) => void;

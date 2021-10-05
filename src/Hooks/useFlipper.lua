@@ -1,7 +1,5 @@
-local Flipper = require(script.Parent.Import)("flipper")
-local Symbol = require(script.Parent.Symbol)
-
-local AssignedBinding = Symbol.named("AssignedBinding")
+local Flipper = require(script.Parent.Parent.import)("Flipper")
+local AssignedBinding = require(script.Parent.Parent.AssignedBinding)
 
 local function createUseFlipper(motor, useBinding)
 	local isMotor = Flipper.isMotor(motor)

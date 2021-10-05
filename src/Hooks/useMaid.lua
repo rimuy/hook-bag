@@ -1,11 +1,8 @@
-
-local function isMaid(obj)
-        return (type(obj) == "table" and obj.ClassName == "Maid")
-end
+local Maid = require(script.Parent.Parent.Library.Maid)
 
 local function useMaid(maid, deps)
         return function(hooks)
-                if isMaid(maid) == false then
+                if Maid.isMaid(maid) == false then
                         error("Value is not a maid!", 2)
                 end
 

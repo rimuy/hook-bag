@@ -1,4 +1,4 @@
-local Promise = require(script.Parent.Promise)
+local Promise = require(script.Parent.Parent.Library.Promise)
 
 local function noop() end
 

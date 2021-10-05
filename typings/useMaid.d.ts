@@ -3,5 +3,5 @@ import Maid from "@rbxts/maid";
 
 export default function useMaid(
         maid: typeof Maid,
-        deps: any[],
+        dependencies: Array<defined>,
 ): (hooks: CoreHooks) => void;

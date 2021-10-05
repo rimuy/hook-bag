@@ -1,4 +1,4 @@
-local copy = require(script.Parent.copy)
+local copy = require(script.Parent.Parent.copy)
 
 local function useReactiveState(initialState)
         return function(hooks)
