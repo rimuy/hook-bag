@@ -87,54 +87,54 @@ local function reducer(state, action)
         end
 end
 
-local function createUseUndo(state, dispatch, canUndo, canRedo)
-        local function undo()
-                dispatch({ type = UNDO_ACTION })
-        end
+--[=[
+        Stores defined amount of previous state values and provides handles to travel through them.
 
-        local function redo()
-                dispatch({ type = REDO_ACTION })
-        end
+        > TODO EXAMPLE
 
-        local function set(newPresent)
-                dispatch({
-                        type = SET_ACTION,
-                        newPresent = newPresent,
-                })
-        end
-
-        local function reset(newPresent)
-                dispatch({
-                        type = RESET_ACTION,
-                        newPresent = newPresent,
-                })
-        end
-
-        return state, {
-                set = set,
-                reset = reset,
-                undo = undo,
-                redo = redo,
-                canUndo = canUndo,
-                canRedo = canRedo,
-        }
-end
-
+        @function useUndo
+        @within Hooks
+        @param initialPresent T
+        @return HookCreator<(T, UseUndo<T>)>
+]=]
 local function useUndo(initialPresent)
         return function(hooks)
-                local useMemo = hooks.useMemo
-                local useReducer = hooks.useReducer
-
-                local state, dispatch = useReducer(reducer, merge(
+                local state, dispatch = hooks.useReducer(reducer, merge(
                         INITIAL_STATE,
                         { present = initialPresent }
                 ))
 
-                return useMemo(function()
-                        return createUseUndo(
-                                state, dispatch,
-                                #state.past > 0, #state.future > 0
-                        )
+                return hooks.useMemo(function()
+                        local function undo()
+                                dispatch({ type = UNDO_ACTION })
+                        end
+
+                        local function redo()
+                                dispatch({ type = REDO_ACTION })
+                        end
+
+                        local function set(newPresent)
+                                dispatch({
+                                        type = SET_ACTION,
+                                        newPresent = newPresent,
+                                })
+                        end
+
+                        local function reset(newPresent)
+                                dispatch({
+                                        type = RESET_ACTION,
+                                        newPresent = newPresent,
+                                })
+                        end
+
+                        return state, {
+                                set = set,
+                                reset = reset,
+                                undo = undo,
+                                redo = redo,
+                                canUndo = #state.past > 0,
+                                canRedo = #state.future > 0,
+                        }
                 end, { state.past, state.future })
         end
 end

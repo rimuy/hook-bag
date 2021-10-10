@@ -37,6 +37,7 @@
     "@rbxts/roact": "^1.4.0-ts.1",
     "@rbxts/roact-hooks": "^0.3.0-ts.1",
     "@rbxts/rodux": "^3.0.0-ts.3",
-    "@rbxts/roselect": "0.0.1"
+    "@rbxts/roselect": "0.0.1",
+    "moonwave": "^0.2.9"
   }
 }

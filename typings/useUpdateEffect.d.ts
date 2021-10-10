@@ -1,10 +1,10 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export function useUpdateEffect(
         callback: () => (() => void) | void,
-): (hooks: CoreHooks) => void;
+): HookCreator<void>;
 
 export function useUpdateEffect(
         callback: () => (() => void) | void,
         dependencies: Array<any>,
-): (hooks: CoreHooks) => void;
+): HookCreator<void>;

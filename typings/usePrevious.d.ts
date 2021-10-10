@@ -1,5 +1,5 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function usePrevious<T>(
         value: T
-): (hooks: CoreHooks) => T | undefined;
+): HookCreator<T | undefined>;

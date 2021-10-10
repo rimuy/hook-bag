@@ -1,5 +1,5 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function useReactiveState<T extends Record<string, any>>(
         initialValue: T,
-): (hooks: CoreHooks) => T;
+): HookCreator<T>;

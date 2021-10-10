@@ -16,6 +16,21 @@ local function isStore(store)
         return true
 end
 
+--[=[
+        Returns a reference to the same store that was passed in to the `StoreProvider` component.
+
+        :::caution
+        This **should not** be used frequently.
+        If you just want to retrieve data from the store, prefer [useSelector](#useSelector) instead.
+        :::
+
+        @function useStore
+        @within Hooks
+        @tag roact-rodux
+        @tag rodux
+        @param hooks RoactHooks
+        @return Store
+]=]
 local function useStore(context)
         return function(hooks)
                 if context == nil then

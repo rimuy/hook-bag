@@ -1,8 +1,9 @@
-import { CoreHooks, Dispatch, BasicStateAction } from "@rbxts/roact-hooks";
+import { Dispatch, BasicStateAction } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function useArray<T>(
         value: Array<T>,
-): (hooks: CoreHooks) => {
+): HookCreator<{
         array: Array<T>;
         set: Dispatch<BasicStateAction<T>>;
         push: (...elements: Array<T>) => void;
@@ -10,4 +11,4 @@ export default function useArray<T>(
         update: (index: number, element: T) => void;
         remove: (index: number) => void;
         clear: () => void;
-};
+}>;

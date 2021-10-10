@@ -1,18 +1,18 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export function useTimeout(
         time: number,
         callback: () => void,
-): (hooks: CoreHooks) => {
+): HookCreator<{
         cancel: () => void;
         reset: () => void;
-};
+}>;
 
 export function useTimeout(
         time: number,
         callback: () => void,
         onCancel: (timeLeft: number) => void,
-): (hooks: CoreHooks) => {
+): HookCreator<{
         cancel: () => void;
         reset: () => void;
-};
+}>;

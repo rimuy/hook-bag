@@ -1,0 +1,17 @@
+title = "Roact-Hooks Bag"
+gitRepoUrl = "https://github.com/HylianBasement/rbx-hook-bag"
+gitSourceBranch = "master"
+
+classOrder = ["Hooks"]
+
+# [[classOrder]]
+# section = "A"
+# classes = ["Hooks"]
+
+[docusaurus]
+url = "https://hylianbasement.github.io"
+tagline = "Collection of custom hooks for Roact"
+
+[home]
+enabled = true
+includeReadme = true

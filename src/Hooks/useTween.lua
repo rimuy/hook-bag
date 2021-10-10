@@ -1,5 +1,15 @@
 local TweenService = game:GetService("TweenService")
 
+--[=[
+        Takes a TweenInfo class and returns a binding and an object to manage the tweening.
+
+        > TODO EXAMPLE
+
+        @function useTween
+        @within Hooks
+        @param tweenInfo TweenInfo
+        @return HookCreator<(RoactBinding<number>, UseTween)>
+]=]
 local function useTween(tweenInfo)
         return function(hooks)
                 local binding, setBinding = hooks.useBinding(0)

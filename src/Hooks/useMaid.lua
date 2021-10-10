@@ -1,5 +1,17 @@
 local Maid = require(script.Parent.Parent.Library.Maid)
 
+--[=[
+        Will clear the maid after one of its dependencies change.
+
+        > TODO EXAMPLE
+
+        @function useMaid
+        @within Hooks
+        @tag maid
+        @param maid Maid
+        @param dependencies {any}
+        @return HookCreator<void>
+]=]
 local function useMaid(maid, deps)
         return function(hooks)
                 if Maid.isMaid(maid) == false then
