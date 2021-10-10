@@ -30,8 +30,8 @@ local createSource = require(script.createSource)
 --- @within Hooks
 --- .isLoading boolean
 --- .isCancelled boolean
---- .didError boolean
---- .result T
+--- .error T | nil
+--- .result T | nil
 
 --- @type UseCounter (number, () -> void, () -> void, () -> void)
 --- @within Hooks

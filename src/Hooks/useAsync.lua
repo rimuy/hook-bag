@@ -43,8 +43,8 @@ local function useAsync(asyncCallback)
                                 update({
                                         isLoading = false,
                                         isCancelled = status == Promise.Status.Cancelled,
-                                        didError = status == Promise.Status.Rejected,
-                                        result = value,
+                                        error = status == Promise.Status.Rejected and value,
+                                        result = status == Promise.Status.Resolved and value,
                                 })
                         end)
                 end, {})
