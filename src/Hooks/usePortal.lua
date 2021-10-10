@@ -1,3 +1,4 @@
+local UserInputService = game:GetService("UserInputService")
 local Maid = require(script.Parent.Parent.Library.Maid)
 local merge = require(script.Parent.Parent.merge)
 
@@ -16,6 +17,17 @@ local DEFAULT_OPTIONS = {
         end,
 }
 
+--[=[
+        This helps you render children into an element that exists outside the hierarchy of the parent component.
+
+        > TODO EXAMPLE
+
+        @function usePortal
+        @within Hooks
+        @tag roact
+        @param options PortalOptions
+        @return HookCreator<UsePortal>
+]=]
 local function usePortal(Roact)
         return function(options)
                 return function(hooks)
@@ -44,10 +56,10 @@ local function usePortal(Roact)
 
                         local registerInput = hooks.useCallback(function()
                                 if connection.value == nil then
-                                        connection.value = hooks.userInputService.InputBegan:Connect(function(input, processed)
+                                        connection.value = UserInputService.InputBegan:Connect(function(input, processed)
                                                 if processed == false
                                                 and isShow == true
-                                                and input.hooks.userInputType == Enum.hooks.userInputType.Mohooks.useButton1 then
+                                                and input.UserInputType == Enum.UserInputType.MouseButton1 then
                                                         options.OnClickOutside(hide)
                                                         maid:DoCleaning()
                                                 end

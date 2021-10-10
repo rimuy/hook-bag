@@ -1,7 +1,7 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 import { Selector } from "@rbxts/roselect";
 
 export default function useSelector<S, R>(
         selector: Selector<S, R>,
         equalityFn?: (a: unknown, b: unknown) => boolean,
-): (hooks: CoreHooks) => R;
+): HookCreator<R>;

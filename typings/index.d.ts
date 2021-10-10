@@ -1,3 +1,5 @@
+import { CoreHooks } from "@rbxts/roact-hooks";
+
 import useArray from "./useArray";
 import useAsync from "./useAsync";
 import useCounter from "./useCounter";
@@ -46,6 +48,10 @@ declare namespace CustomHooks {
                 useUndo,
                 useUpdateEffect,
         }
+}
+
+declare namespace CustomHooks {
+        export type HookCreator<T> = (hooks: CoreHooks) => T;
 }
 
 export = CustomHooks;

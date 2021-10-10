@@ -1,5 +1,13 @@
 local copy = require(script.Parent.Parent.copy)
 
+--[=[
+        State hook that implements a simple FIFO queue.
+
+        @function useQueue
+        @within Hooks
+        @param initialValue {T}
+        @return HookCreator<UseQueue<T>>
+]=]
 local function useQueue(initialValue)
         return function(hooks)
                 local queue, setQueue = hooks.useState(initialValue or {})

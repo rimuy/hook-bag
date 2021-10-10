@@ -1,0 +1,30 @@
+:root {
+        --ifm-color-primary: #0099ff;
+        --ifm-color-primary-dark: rgb(0, 136, 227);
+        --ifm-color-primary-darker: rgb(0, 128, 214);
+        --ifm-color-primary-darkest: rgb(0, 119, 199);
+        --ifm-color-primary-light: rgb(48, 172, 255);
+        --ifm-color-primary-lighter: rgb(110, 196, 255);
+        --ifm-color-primary-lightest: rgb(138, 207, 255);
+        --ifm-navbar-link-color: white;
+        --ifm-navbar-link-hover-color: #ececec;
+        --ifm-code-font-size: 95%;
+}
+
+.navbar, .navbar-sidebar__brand {
+	background: #0d47a1;
+}
+
+.clean-btn {
+	color: white;
+}
+
+html[data-theme="light"] .footer, html[data-theme="light"] .footer--dark {
+	background: #f0f0f0;
+	color: black;
+}
+
+html[data-theme="dark"] .footer, html[data-theme="dark"] .footer--dark {
+	background: #212224;
+	color: white;
+}

@@ -1,27 +1,32 @@
 local Flipper = require(script.Parent.Parent.import)("Flipper")
 local AssignedBinding = require(script.Parent.Parent.AssignedBinding)
 
-local function createUseFlipper(motor, useBinding)
-	local isMotor = Flipper.isMotor(motor)
-	if not isMotor then
-		error("Provided value is not a motor!", 2)
-	end
+--[=[
+	Helper hook that takes a flipper motor, connects it to a binding and returns both.
 
-	if motor[AssignedBinding] then
-		return motor[AssignedBinding]
-	end
-
-	local binding, setBindingValue = useBinding(motor:getValue())
-	motor:onStep(setBindingValue)
-
-	motor[AssignedBinding] = binding
-
-	return binding, motor
-end
-
+	@function useFlipper
+	@within Hooks
+	@tag flipper
+	@param motor FlipperMotor
+	@return HookCreator<UseFlipper>
+]=]
 local function useFlipper(motor)
 	return function(hooks)
-        	return createUseFlipper(motor, hooks.useBinding)
+        	local isMotor = Flipper.isMotor(motor)
+		if not isMotor then
+			error("Provided value is not a motor!", 2)
+		end
+
+		if motor[AssignedBinding] then
+			return motor[AssignedBinding]
+		end
+
+		local binding, setBindingValue = hooks.useBinding(motor:getValue())
+		motor:onStep(setBindingValue)
+
+		motor[AssignedBinding] = binding
+
+		return binding, motor
 	end
 end
 

@@ -1,6 +1,7 @@
 import { Binding } from "@rbxts/roact";
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
+import BaseMotor from "@rbxts/flipper/typings/BaseMotor";
 
-export default function useFlipper<T>(
+export default function useFlipper<T extends BaseMotor<number | Array<number>>>(
         motor: T,
-): (hooks: CoreHooks) => LuaTuple<[Binding<number>, T]>;
+): HookCreator<LuaTuple<[Binding<number>, T]>>;

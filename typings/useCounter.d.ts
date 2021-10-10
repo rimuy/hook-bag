@@ -1,10 +1,12 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function useCounter(
         initialValue?: number
-): (hooks: CoreHooks) => LuaTuple<[
-        count: number,
-        increment: () => number,
-        decrement: () => number,
-        reset: () => void,
-]>;
+): HookCreator<
+        LuaTuple<[
+                count: number,
+                increment: () => number,
+                decrement: () => number,
+                reset: () => void,
+        ]>
+>;

@@ -1,5 +1,13 @@
 local copy = require(script.Parent.Parent.copy)
 
+--[=[
+        Creates a state object that can be changed whenever a new value is assigned to a key.
+
+        @function useReactiveState
+        @within Hooks
+        @param initialState T
+        @return HookCreator<T>
+]=]
 local function useReactiveState(initialState)
         return function(hooks)
                 if type(initialState) ~= "table" then

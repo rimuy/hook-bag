@@ -1,4 +1,4 @@
-import { CoreHooks } from '@rbxts/roact-hooks';
+import { HookCreator } from "./";
 import Roact from '@rbxts/roact';
 
 interface UsePortalOptions {
@@ -14,10 +14,10 @@ interface UsePortalOptions {
 
 export default function usePortal(
         options: UsePortalOptions
-): (hooks: CoreHooks) => {
+): HookCreator<{
         Portal: Roact.FunctionComponent;
         isShow: boolean;
         show: () => void;
         hide: () => void;
         toggle: () => void;
-};
+}>;

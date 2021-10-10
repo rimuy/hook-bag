@@ -1,11 +1,11 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function useQueue<T>(
         initialValue?: Array<T>,
-): (hooks: CoreHooks) => {
+): HookCreator<{
         add: (element: T) => void;
         remove: () => void;
         first?: T;
         last?: T;
         size: number;
-};
+}>;

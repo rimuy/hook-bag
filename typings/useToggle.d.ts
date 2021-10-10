@@ -1,8 +1,10 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 
 export default function useToggle(
         initialValue: boolean,
-): (hooks: CoreHooks) => LuaTuple<[
-        value: boolean,
-        toggle: (value?: boolean) => void,
-]>;
+): HookCreator<
+        LuaTuple<[
+                value: boolean,
+                toggle: (value?: boolean) => void,
+        ]>
+>;

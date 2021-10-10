@@ -1,7 +1,7 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import { HookCreator } from "./";
 import Maid from "@rbxts/maid";
 
 export default function useMaid(
         maid: typeof Maid,
         dependencies: Array<defined>,
-): (hooks: CoreHooks) => void;
+): HookCreator<void>;
