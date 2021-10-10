@@ -1,57 +1,26 @@
-import { CoreHooks } from "@rbxts/roact-hooks";
+import  { CoreHooks } from "@rbxts/roact-hooks";
 
-import useArray from "./useArray";
-import useAsync from "./useAsync";
-import useCounter from "./useCounter";
-import { useDebounce } from "./useDebounce";
-import useDebouncedText from "./useDebouncedText";
-import { useDispatch } from "./useDispatch";
-import useFlipper from "./useFlipper";
-import useForceUpdate from "./useForceUpdate";
-import useLatest from "./useLatest";
-import useMaid from "./useMaid";
-import usePortal from "./usePortal";
-import usePrevious from "./usePrevious";
-import useQueue from "./useQueue";
-import useReactiveState from "./useReactiveState";
-import useRendersSpy from "./useRendersSpy";
-import useSelector from "./useSelector";
-import useStore from "./useStore";
-import { useTimeout } from "./useTimeout";
-import useToggle from "./useToggle";
-import useTween from "./useTween";
-import useUndo from "./useUndo";
-import { useUpdateEffect } from "./useUpdateEffect";
+export type HookCreator<T> = (hooks: CoreHooks) => T;
 
-declare namespace CustomHooks {
-        export {
-                useArray,
-                useAsync,
-                useCounter,
-                useDebounce,
-                useDebouncedText,
-                useDispatch,
-                useFlipper,
-                useForceUpdate,
-                useLatest,
-                useMaid,
-                usePortal,
-                usePrevious,
-                useQueue,
-                useReactiveState,
-                useRendersSpy,
-                useSelector,
-                useStore,
-                useTimeout,
-                useToggle,
-                useTween,
-                useUndo,
-                useUpdateEffect,
-        }
-}
-
-declare namespace CustomHooks {
-        export type HookCreator<T> = (hooks: CoreHooks) => T;
-}
-
-export = CustomHooks;
+export { default as useArray } from "./useArray";
+export { default as useAsync } from "./useAsync";
+export { default as useCounter } from "./useCounter";
+export { useDebounce } from "./useDebounce";
+export { default as useDebouncedText } from "./useDebouncedText";
+export { useDispatch } from "./useDispatch";
+export { default as useFlipper } from "./useFlipper";
+export { default as useForceUpdate } from "./useForceUpdate";
+export { default as useLatest } from "./useLatest";
+export { default as useMaid } from "./useMaid";
+export { default as usePortal } from "./usePortal";
+export { default as usePrevious } from "./usePrevious";
+export { default as useQueue } from "./useQueue";
+export { default as useReactiveState } from "./useReactiveState";
+export { default as useRendersSpy } from "./useRendersSpy";
+export { default as useSelector } from "./useSelector";
+export { default as useStore } from "./useStore";
+export { useTimeout } from "./useTimeout";
+export { default as useToggle } from "./useToggle";
+export { default as useTween } from "./useTween";
+export { default as useUndo } from "./useUndo";
+export { useUpdateEffect } from "./useUpdateEffect";
