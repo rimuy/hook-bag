@@ -5,6 +5,6 @@ export default function useAsync<T>(
 ): HookCreator<{
         isLoading: boolean;
         isCancelled?: boolean;
-        didError?: boolean;
+        error?: T;
         result?: T;
 }>;
