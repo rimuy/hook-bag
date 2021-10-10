@@ -10,7 +10,7 @@ classOrder = ["Hooks"]
 
 [docusaurus]
 url = "https://hylianbasement.github.io"
-baseUrl = "/"
+baseUrl = "/rbx-hook-bag/"
 tagline = "Collection of custom hooks for Roact"
 
 [home]
