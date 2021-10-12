@@ -32,7 +32,7 @@ local function createSource(roactSource, roactRoduxSource)
 
         local useStore = createUseStore(roactRoduxSource)
         local useSelector = createUseSelector(useStore)
-        local useDispatch = createUseDispatch(useStore)
+        local useDispatch = createUseDispatch(useStore, useSelector)
 
         return {
                 useArray = useArray,

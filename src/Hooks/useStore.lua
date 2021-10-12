@@ -1,5 +1,3 @@
-local HookConnection = require(script.Parent.Parent.HookConnection)
-
 local storeKeys = {"_state", "_reducer", "_connections"}
 
 local function isStore(store)
@@ -44,24 +42,6 @@ local function useStore(context)
                 elseif not isStore(store) then
                         error("An invalid store was passed into the StoreProvider.", 3)
                 end
-
-                local _, setState = hooks.useState(store:getState())
-
-                hooks.useEffect(function()
-                        if store[HookConnection] == nil then
-                                store[HookConnection] = store.changed:connect(function(newState)
-                                        setState(newState)
-                                end)
-                        end
-
-                        return function()
-                                local connection = store[HookConnection]
-                                if connection then
-                                        connection:Disconnect()
-                                        store[HookConnection] = nil
-                                end
-                        end
-                end, {})
 
                 return store
         end

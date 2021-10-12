@@ -1,6 +1,8 @@
 
+local function noop() end
+
 --[=[
-        Returns a reference to the `dispatch` function from the store.
+        Returns a function that executes the `dispatch` method of the store.
         You may use it to dispatch actions as needed.
 
         ```lua
@@ -27,13 +29,16 @@
         @param hooks RoactHooks
         @return () -> void
 ]=]
-local function useDispatch(useStore)
+local function useDispatch(useStore, useSelector)
         return function(hooks)
                 local store = useStore(hooks)
 
                 local dispatch = hooks.useCallback(function(action)
                         store:dispatch(action)
-                end, {})
+                end, { store })
+
+                -- For creating a connection to the store if no components are listening to changes
+                useSelector(noop)(hooks)
 
                 return dispatch
         end

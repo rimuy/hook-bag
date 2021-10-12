@@ -1,3 +1,5 @@
+local HookConnection = require(script.Parent.Parent.HookConnection)
+
 local roselect = require(script.Parent.Parent.Library.Roselect)
 local createSelectorCreator = roselect.createSelectorCreator
 local defaultMemoize = roselect.defaultMemoize
@@ -33,6 +35,32 @@ local function useSelector(useStore)
 
 			local store = useStore(hooks)
 			local state = store:getState()
+			local _, setState = hooks.useState(state)
+
+			hooks.useEffect(function()
+				local hookConnection = store[HookConnection]
+				if hookConnection == nil then
+					store[HookConnection] = {
+						connection = store.changed:connect(function(newState)
+							setState(newState)
+						end),
+						hookCount = 1,
+					}
+				else
+					hookConnection.hookCount += 1
+				end
+
+				return function()
+					if hookConnection then
+						hookConnection.hookCount -= 1
+
+						if hookConnection.hookCount == 0 then
+							hookConnection.connection:disconnect()
+							store[HookConnection] = nil
+						end
+					end
+				end
+			end, {})
 
 			local result = hooks.useMemo(function()
 				return createSelectorCreator(
