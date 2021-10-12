@@ -79,6 +79,12 @@ local createSource = require(script.createSource)
 --- .canUndo boolean
 --- .canRedo boolean
 
+--- @interface UseUndoState<T>
+--- @within Hooks
+--- .past {T}
+--- .present T
+--- .future {T}
+
 local roactSource = script.Parent.Roact
 local roactRoduxSource = script.Parent.RoactRodux
 

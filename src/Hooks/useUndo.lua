@@ -95,7 +95,7 @@ end
         @function useUndo
         @within Hooks
         @param initialPresent T
-        @return HookCreator<(T, UseUndo<T>)>
+        @return HookCreator<(UseUndoState<T>, UseUndo<T>)>
 ]=]
 local function useUndo(initialPresent)
         return function(hooks)
