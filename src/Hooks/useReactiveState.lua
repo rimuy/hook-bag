@@ -1,4 +1,5 @@
 local copy = require(script.Parent.Parent.copy)
+local useLatest = require(script.Parent.useLatest)
 
 --[=[
         Creates a state object that can be changed whenever a new value is assigned to a key.
@@ -15,20 +16,25 @@ local function useReactiveState(initialState)
                 end
 
                 local state, update = hooks.useState(initialState)
+                local latestState = useLatest(state)(hooks)
 
-                return setmetatable({}, {
-                        __index = function(_, key)
-                                return state[key]
-                        end,
-                        __newindex = function(_, key, value)
-                                local newState = copy(state)
-                                newState[key] = value
-                                update(newState)
-                        end,
-                        __tostring = function()
-                                return 'ReactiveState'
-                        end,
-                })
+                local reactiveState = hooks.useMemo(function()
+                        return setmetatable({}, {
+                                __index = function(_, key)
+                                        return latestState.value[key]
+                                end,
+                                __newindex = function(_, key, value)
+                                        local newState = copy(latestState.value)
+                                        newState[key] = value
+                                        update(newState)
+                                end,
+                                __tostring = function()
+                                        return 'ReactiveState'
+                                end,
+                        })
+                end, {})
+
+                return reactiveState
         end
 end
 
