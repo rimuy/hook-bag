@@ -29,7 +29,8 @@
   },
   "devDependencies": {
     "@rbxts/compiler-types": "^1.2.3-types.0",
-    "@rbxts/types": "^1.0.505"
+    "@rbxts/types": "^1.0.505",
+    "moonwave": "^0.2.10"
   },
   "dependencies": {
     "@rbxts/flipper": "^2.0.0",
@@ -37,7 +38,6 @@
     "@rbxts/roact": "^1.4.0-ts.1",
     "@rbxts/roact-hooks": "^0.3.0-ts.1",
     "@rbxts/rodux": "^3.0.0-ts.3",
-    "@rbxts/roselect": "0.0.1",
-    "moonwave": "^0.2.9"
+    "@rbxts/roselect": "^0.0.2"
   }
 }
