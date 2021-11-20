@@ -17,16 +17,19 @@ local function useFlipper(motor)
 			error("Provided value is not a motor!", 2)
 		end
 
-		if motor[AssignedBinding] then
-			return motor[AssignedBinding]
-		end
+		local m = hooks.useValue(motor)
+		local binding, setBindingValue = hooks.useBinding(m.value:getValue())
 
-		local binding, setBindingValue = hooks.useBinding(motor:getValue())
-		motor:onStep(setBindingValue)
+		hooks.useEffect(function()
+			local currentMotor = m.value
+			currentMotor:onStep(setBindingValue)
 
-		motor[AssignedBinding] = binding
+			return function()
+				currentMotor:destroy()
+			end
+		end, { m.value })
 
-		return binding, motor
+		return binding, m.value
 	end
 end
 
