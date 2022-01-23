@@ -4,14 +4,22 @@ return function(name, org)
 
         if not module then
                 local rbxts = game:GetService("ReplicatedStorage"):FindFirstChild("rbxts_include")
+
+                if rbxts == nil then
+                        rbxts = script.Parent.Parent.Parent.Parent
+
+                        if not rbxts:FindFirstChild("RuntimeLib") then
+                                rbxts = nil
+                        end
+                end
+
                 if rbxts ~= nil then
                         local TS = require(
-                                game:GetService("ReplicatedStorage")
-                                        :WaitForChild("rbxts_include")
-                                        :WaitForChild("RuntimeLib")
+                                rbxts:WaitForChild("RuntimeLib")
                         )
                         lib = TS.import(script, TS.getModule(script, "@" .. (org or "rbxts"), name:lower()).src)
                 else
+
                         error(("Failed to find %s."):format(name))
                 end
         else
