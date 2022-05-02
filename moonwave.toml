@@ -1,5 +1,5 @@
 title = "Roact-Hooks Bag"
-gitRepoUrl = "https://github.com/HylianBasement/rbx-hook-bag"
+gitRepoUrl = "https://github.com/Rimuy/hook-bag"
 gitSourceBranch = "master"
 
 classOrder = ["Hooks"]
@@ -9,9 +9,9 @@ classOrder = ["Hooks"]
 # classes = ["Hooks"]
 
 [docusaurus]
-url = "https://hylianbasement.github.io"
-baseUrl = "/rbx-hook-bag/"
-tagline = "Collection of custom hooks for Roact"
+url = "https://rimuy.github.io"
+baseUrl = "/hook-bag/"
+tagline = "Collection of custom roact hooks"
 
 [home]
 enabled = true

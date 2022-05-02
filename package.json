@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/hook-bag",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "src/ts.lua",
   "types": "typings/index.d.ts",
@@ -14,10 +14,10 @@
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HylianBasement/rbx-hook-bag.git"
+    "url": "git+https://github.com/Rimuy/hook-bag.git"
   },
   "bugs": {
-    "url": "https://github.com/HylianBasement/rbx-hook-bag/issues"
+    "url": "https://github.com/Rimuy/hook-bag/issues"
   },
   "files": [
     "src",
@@ -30,14 +30,14 @@
   "devDependencies": {
     "@rbxts/compiler-types": "^1.2.3-types.0",
     "@rbxts/types": "^1.0.505",
-    "moonwave": "^0.2.10"
+    "moonwave": "^0.3.4"
   },
   "dependencies": {
-    "@rbxts/flipper": "^2.0.0",
+    "@rbxts/flipper": "^2.0.1",
     "@rbxts/maid": "^1.0.0-ts.1",
-    "@rbxts/roact": "^1.4.0-ts.1",
-    "@rbxts/roact-hooks": "^0.3.0-ts.1",
+    "@rbxts/roact": "^1.4.2-ts.0",
+    "@rbxts/roact-hooks": "^0.4.0-ts.0",
     "@rbxts/rodux": "^3.0.0-ts.3",
-    "@rbxts/roselect": "^0.0.2"
+    "@rbxts/roselect": "^0.1.1"
   }
 }

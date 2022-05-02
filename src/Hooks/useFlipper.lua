@@ -1,4 +1,4 @@
-local Flipper = require(script.Parent.Parent.import)("Flipper")
+local Flipper = require(script.Parent.Parent.Import)("Flipper")
 local AssignedBinding = require(script.Parent.Parent.AssignedBinding)
 
 --[=[
