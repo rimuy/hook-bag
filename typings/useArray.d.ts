@@ -1,7 +1,11 @@
 import { Dispatch, BasicStateAction } from "@rbxts/roact-hooks";
 import { HookCreator } from "./";
 
-export default function useArray<T>(
+/**
+ * Lets you manipulate an array data structure without ever needing extra utilities.
+ * @param value The initial state of the array.
+ */
+declare function useArray<T>(
         value: Array<T>,
 ): HookCreator<{
         array: Array<T>;
@@ -12,3 +16,5 @@ export default function useArray<T>(
         remove: (index: number) => void;
         clear: () => void;
 }>;
+
+export = useArray;

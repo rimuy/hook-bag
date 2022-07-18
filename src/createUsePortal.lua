@@ -1,9 +1,7 @@
 local usePortal = require(script.Parent.Hooks.usePortal)
 
 local function createUsePortal(roactSource)
-        local Roact = require(roactSource)
-
-        return usePortal(Roact)
+        return usePortal(require(roactSource))
 end
 
 return createUsePortal

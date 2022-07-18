@@ -1,6 +1,13 @@
 import { HookCreator } from "./";
 
-export default function useCounter(
+/**
+ * State hook that tracks a numeric value.
+ * If no initial value is passed, it will default to 0.
+ * 
+ * Counters can be increased/decreased by amount if you pass a number to it's function.
+ * @param initialValue The initial value.
+ */
+declare function useCounter(
         initialValue?: number
 ): HookCreator<
         LuaTuple<[
@@ -10,3 +17,5 @@ export default function useCounter(
                 reset: () => void,
         ]>
 >;
+
+export = useCounter;

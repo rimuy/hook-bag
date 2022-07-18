@@ -1,6 +1,10 @@
 import { HookCreator } from "./";
 
-export default function useAsync<T>(
+/**
+ * Handles async operations and prevents race conditions.
+ * @param asyncCallback The callback that will return a promise.
+ */
+declare function useAsync<T>(
         asyncCallback: (...args: any[]) => Promise<T>,
 ): HookCreator<{
         isLoading: boolean;
@@ -8,3 +12,5 @@ export default function useAsync<T>(
         error?: T;
         result?: T;
 }>;
+
+export = useAsync;

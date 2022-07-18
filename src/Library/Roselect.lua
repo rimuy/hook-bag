@@ -2,9 +2,18 @@ local function defaultEqualityCheck(a, b)
 	return a == b
 end
 
-local function isDependency(value)
-	return type(value) ~= 'function'
-	and type(value) == 'table' and value['dependencies'] == nil
+local function isArray(tbl)
+	if type(tbl) ~= "table" then
+		return false
+	end
+
+	for k, _ in pairs(tbl) do
+		if type(k) ~= "number" then
+			return false
+		end
+	end
+
+	return true
 end
 
 local function reduce(tbl, callback, initialValue)
@@ -32,7 +41,7 @@ local function areArgumentsShallowlyEqual(equalityCheck, prev, nextValue)
 	return true
 end
 
-function defaultMemoize(func, equalityCheck)
+local function defaultMemoize(func, equalityCheck)
 	if equalityCheck == nil then
 		equalityCheck = defaultEqualityCheck
 	end
@@ -53,18 +62,18 @@ function defaultMemoize(func, equalityCheck)
 end
 
 local function getDependencies(funcs)
-	local dependencies = isDependency(funcs[1]) and funcs[1] or funcs
+	local dependencies = if isArray(funcs[1]) then funcs[1] else funcs
 
 	for _, dep in ipairs(dependencies) do
-		if isDependency(dep) then
-			error('Selector creators expect all input-selectors to be functions.', 2)
+		if type(dep) ~= "function" then
+			error("Selector creators expect all input-selectors to be functions.", 2)
 		end
 	end
 
 	return dependencies
 end
 
-function createSelectorCreator(memoize, ...)
+local function createSelectorCreator(memoize, ...)
 	local memoizeOptions = {...}
 
 	return function(...)
@@ -110,10 +119,11 @@ end
 
 local createSelector = createSelectorCreator(defaultMemoize)
 
-function createStructuredSelector(selectors, selectorCreator)
-	if type(selectors) ~= 'table' then
-		local errMsg = 'createStructuredSelector expects first argument to be an object where each property is a selector, instead received a %s'
-		error((errMsg):format(type(selectors)), 2)
+local function createStructuredSelector(selectors, selectorCreator)
+	if type(selectors) ~= "table" then
+		error((
+			"createStructuredSelector expects first argument to be an object where each property is a selector, instead received a %s"
+		):format(type(selectors)), 2)
 	elseif selectorCreator == nil then
 		selectorCreator = createSelector
 	end

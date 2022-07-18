@@ -1,5 +1,5 @@
-import { HookCreator } from "./";
 import Roact from '@rbxts/roact';
+import { HookCreator } from "./";
 
 interface UsePortalOptions {
         Target: Instance;
@@ -12,12 +12,18 @@ interface UsePortalOptions {
         OnClickOutside?: (hide: () => void) => void;
 }
 
-export default function usePortal(
+/**
+ * This helps you render children into an element that exists outside the hierarchy of the parent component.
+ * @param options The settings of the portal.
+ */
+declare function usePortal(
         options: UsePortalOptions
 ): HookCreator<{
-        Portal: Roact.FunctionComponent;
+        Portal: () => Roact.Element;
         isShow: boolean;
         show: () => void;
         hide: () => void;
         toggle: () => void;
 }>;
+
+export = usePortal;

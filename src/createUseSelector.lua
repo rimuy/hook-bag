@@ -1,7 +1,7 @@
 local useSelector = require(script.Parent.Hooks.useSelector)
 
-local function createUseDispatch(useStore)
-        return useSelector(useStore)
+local function createUseDispatch(roselect, useStore)
+        return useSelector(require(roselect), useStore)
 end
 
 return createUseDispatch

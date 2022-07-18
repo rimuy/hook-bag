@@ -2,7 +2,7 @@ local copy = require(script.Parent.Parent.copy)
 local useLatest = require(script.Parent.useLatest)
 
 --[=[
-        Creates a state object that can be changed whenever a new value is assigned to a key.
+        Creates a mutable state object that causes a re-render whenever a new value is assigned to a key.
 
         @function useReactiveState
         @within Hooks

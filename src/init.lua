@@ -85,7 +85,14 @@ local createSource = require(script.createSource)
 --- .present T
 --- .future {T}
 
-local roactSource = script.Parent.Roact
-local roactRoduxSource = script.Parent.RoactRodux
+local roactSource = script.Parent:FindFirstChild("Roact")
+local roactRoduxSource = script.Parent:FindFirstChild("RoactRodux")
+local flipperSource = script.Parent:FindFirstChild("Flipper")
+local roselectSource = script.Library:FindFirstChild("Roselect")
 
-return createSource(roactSource, roactRoduxSource)
+return createSource({
+        roact = roactSource,
+        roactRodux = roactRoduxSource,
+        flipper = flipperSource,
+        roselect = roselectSource,
+})

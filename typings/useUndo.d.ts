@@ -8,7 +8,11 @@ interface State<T> {
         future: Array<T>;
 }
 
-export default function useUndo<T extends defined>(
+/**
+ * Stores defined amount of previous state values and provides handles to travel through them.
+ * @param initialPresent The initial value.
+ */
+declare function useUndo<T extends defined>(
         initialPresent: T,
 ): HookCreator<LuaTuple<[
         State<T>,
@@ -21,3 +25,5 @@ export default function useUndo<T extends defined>(
                 canRedo: boolean;
         }
 ]>>;
+
+export = useUndo;

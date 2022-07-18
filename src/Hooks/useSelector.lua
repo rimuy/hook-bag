@@ -1,9 +1,5 @@
 local HookConnection = require(script.Parent.Parent.HookConnection)
 
-local roselect = require(script.Parent.Parent.Library.Roselect)
-local createSelectorCreator = roselect.createSelectorCreator
-local defaultMemoize = roselect.defaultMemoize
-
 local function defaultEqualityCheck(a, b)
 	return a == b
 end
@@ -23,7 +19,9 @@ end
 	@param equalityFn ((a: any, b: any) -> boolean) | nil
 	@return HookCreator<R>
 ]=]
-local function useSelector(useStore)
+local function useSelector(roselect, useStore)
+	local createSelectorCreator = roselect.createSelectorCreator
+	local defaultMemoize = roselect.defaultMemoize
 	return function(selector, equalityFn)
 		return function(hooks)
 			local checkEqual = hooks.useMemo(function()

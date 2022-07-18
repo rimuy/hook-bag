@@ -8,7 +8,7 @@ local useUpdateEffect = require(script.Parent.useUpdateEffect)
         The debounce timeout will start when one of the values changes.
 
         :::tip
-        You can reach the same result using the hook [below](#useDebouncedText  ).
+        You can reach the same result using the hook [below](#useDebouncedText).
         :::
 
         ```lua

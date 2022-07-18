@@ -1,7 +1,14 @@
 local createSource = require(script.Parent.createSource)
-local nodeModules = script.Parent:FindFirstAncestor("node_modules")
+local getSource = require(script.Parent.getRbxtsSource)
 
-local roactSource = nodeModules:FindFirstChild("roact") or {}
-local roactRoduxSource = nodeModules:FindFirstChild("roact-rodux") or {}
+local roactSource = getSource("roact")
+local roactRoduxSource = getSource("roact-rodux")
+local flipperSource = getSource("flipper")
+local roselectSource = getSource("roselect")
 
-return createSource(roactSource.src, roactRoduxSource.src)
+return createSource({
+        roact = roactSource,
+        roactRodux = roactRoduxSource,
+        flipper = flipperSource,
+        roselect = roselectSource,
+})

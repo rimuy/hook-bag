@@ -1,7 +1,7 @@
 {
   "name": "@rbxts/hook-bag",
-  "version": "0.1.1",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Collection of custom roact hooks",
   "main": "src/ts.lua",
   "types": "typings/index.d.ts",
   "scripts": {},
@@ -28,16 +28,16 @@
     "access": "public"
   },
   "devDependencies": {
-    "@rbxts/compiler-types": "^1.2.3-types.0",
-    "@rbxts/types": "^1.0.505",
-    "moonwave": "^0.3.4"
+    "@rbxts/compiler-types": "^1.3.3-types.1",
+    "@rbxts/types": "^1.0.629",
+    "moonwave": "^0.3.7"
   },
   "dependencies": {
     "@rbxts/flipper": "^2.0.1",
     "@rbxts/maid": "^1.0.0-ts.1",
-    "@rbxts/roact": "^1.4.2-ts.0",
-    "@rbxts/roact-hooks": "^0.4.0-ts.0",
+    "@rbxts/roact": "^1.4.2-ts.3",
+    "@rbxts/roact-hooks": "^0.4.1-ts.2",
     "@rbxts/rodux": "^3.0.0-ts.3",
-    "@rbxts/roselect": "^0.1.1"
+    "@rbxts/roselect": "^0.1.2"
   }
 }

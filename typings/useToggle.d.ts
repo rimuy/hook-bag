@@ -1,6 +1,10 @@
 import { HookCreator } from "./";
 
-export default function useToggle(
+/**
+ * State hook that tracks value of a boolean.
+ * @param initialValue The initial value.
+ */
+declare function useToggle(
         initialValue: boolean,
 ): HookCreator<
         LuaTuple<[
@@ -8,3 +12,5 @@ export default function useToggle(
                 toggle: (value?: boolean) => void,
         ]>
 >;
+
+export = useToggle;
